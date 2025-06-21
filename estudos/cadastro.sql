@@ -14,3 +14,12 @@ CREATE TABLE pessoas (
     nacionalidade varchar(20) default 'Brasil',
     primary key (id)
 ) DEFAULT CHARSET = utf8mb4;
+
+INSERT INTO pessoas VALUES
+(DEFAULT, 'Ana', '1975-12-22', 'F', '52.3', '1.45', 'EUA'),
+(DEFAULT, 'Pedro', '2000-07-15', 'M', '52.3', '1.45', 'Brasil'),
+(DEFAULT, 'Maria', '1999-05-30', 'F', '75.9', '1.70', 'Portugal');
+
+select * from pessoas;
+
+DELETE FROM pessoas WHERE id = 2;
