@@ -11,6 +11,6 @@ CREATE TABLE pessoas (
     sexo enum('M','F'),
     peso decimal(5,2),
     altura decimal(3,2),
-    nacionalidade varchar(20),
+    nacionalidade varchar(20) default 'Brasil',
     primary key (id)
 ) DEFAULT CHARSET = utf8mb4;
