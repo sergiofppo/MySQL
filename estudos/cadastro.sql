@@ -1,25 +1,15 @@
-DROP DATABASE IF EXISTS cadastro;
-CREATE DATABASE cadastro DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_unicode_ci;
-USE cadastro;
+create table if not exists  cursos (
+nome varchar(30) not null unique,
+descricao text,
+carga int unsigned,
+totalaulas int unsigned,
+ano year default '2025'
+) default charset = utf8mb4;
 
-DROP TABLE IF EXISTS pessoas;
+desc cursos;
 
-CREATE TABLE pessoas (
-	id int NOT NULL AUTO_INCREMENT,
-    nome varchar(30) NOT NULL,
-    nascimento date,
-    sexo enum('M','F'),
-    peso decimal(5,2),
-    altura decimal(3,2),
-    nacionalidade varchar(20) default 'Brasil',
-    primary key (id)
-) DEFAULT CHARSET = utf8mb4;
+alter table cursos
+add column idcurso int first;
 
-INSERT INTO pessoas VALUES
-(DEFAULT, 'Ana', '1975-12-22', 'F', '52.3', '1.45', 'EUA'),
-(DEFAULT, 'Pedro', '2000-07-15', 'M', '52.3', '1.45', 'Brasil'),
-(DEFAULT, 'Maria', '1999-05-30', 'F', '75.9', '1.70', 'Portugal');
-
-select * from pessoas;
-
-DELETE FROM pessoas WHERE id = 2;
+alter table cursos
+add primary key (idcurso);
